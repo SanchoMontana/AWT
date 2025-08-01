@@ -2,6 +2,8 @@
 
 import dearpygui.dearpygui as dpg
 
+dpg.create_context()
+
 # from fonts.font_init import *
 from gruvbox_theme import apply_gruvbox_theme
 from db.db_utils import init_db
@@ -12,7 +14,6 @@ from modals import add_new_student
 # Initialize DB (only needed once at app start)
 init_db()
 
-dpg.create_context()
 apply_gruvbox_theme()
 
 dpg.create_viewport(title="🎨 Art Lesson Manager", width=1200, height=800)

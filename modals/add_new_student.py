@@ -1,21 +1,22 @@
 import dearpygui.dearpygui as dpg
 from db.db_utils import insert_new_student
+from global_uuids import ADD_STUDENT_MODAL_UUID
 
-ADD_NEW_STUDENT_MODAL_TAG= "add_new_student_modal"
-def submit_new_student_callback():
+def submit_new_student_callback(sender, app_data, user_data):
     name = dpg.get_value("student_name")
     dob = dpg.get_value("student_dob")
     email = dpg.get_value("student_email")
     phone = dpg.get_value("student_phone")
     notes = dpg.get_value("student_notes")
     insert_new_student(name, dob, email, phone, notes)
-    dpg.delete_item(ADD_NEW_STUDENT_MODAL_TAG)
+    dpg.delete_item(ADD_STUDENT_MODAL_UUID)
+    user_data["update_fn"](user_data["cols"], user_data["rows"])
     return
 
-def open_modal():
-    if dpg.does_item_exist(ADD_NEW_STUDENT_MODAL_TAG):
-        dpg.delete_item(ADD_NEW_STUDENT_MODAL_TAG)
-    with dpg.window(label="Add New User", modal=True, tag=ADD_NEW_STUDENT_MODAL_TAG, width=500, height=500, no_title_bar=False):
+def open_modal(sender, app_data, user_data):
+    if dpg.does_item_exist(ADD_STUDENT_MODAL_UUID):
+        dpg.delete_item(ADD_STUDENT_MODAL_UUID)
+    with dpg.window(label="Add New User", modal=True, tag=ADD_STUDENT_MODAL_UUID, width=500, height=500, no_title_bar=False):
         with dpg.group(horizontal=True):
             dpg.add_text("Name:".ljust(15))
             dpg.add_input_text(label=None, tag="student_name", hint="John Doe")
@@ -32,6 +33,6 @@ def open_modal():
         dpg.add_input_text(label=None, tag="student_notes")
 
         dpg.add_spacer(height=10)
-        dpg.add_button(label="Add Student", callback=submit_new_student_callback)
-        dpg.add_button(label="Cancel", callback=lambda: dpg.delete_item(ADD_NEW_STUDENT_MODAL_TAG))
+        dpg.add_button(label="Add Student", callback=submit_new_student_callback, user_data=user_data)
+        dpg.add_button(label="Cancel", callback=lambda: dpg.delete_item(ADD_STUDENT_MODAL_UUID))
 

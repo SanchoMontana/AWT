@@ -12,7 +12,7 @@ def submit_modify_student_callback(sender, app_data, user_data):
     student["Notes"] = dpg.get_value("student_notes")
     modify_student(student)
     dpg.delete_item(MODIFY_STUDENT_MODAL_TAG)
-    user_data["update_fn"]()
+    user_data["update_fn"](user_data["cols"], user_data["rows"])
     return
 
 def open_modal(sender, app_data, user_data):
