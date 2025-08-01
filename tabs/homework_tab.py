@@ -12,7 +12,7 @@ def get_recent_homework(limit=10):
     conn.close()
     return rows
 
-def draw_homework_tab():
+def homework_tab():
     with dpg.tab(label="Homework"):
         rows = get_recent_homework()
         if not rows:

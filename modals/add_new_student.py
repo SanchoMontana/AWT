@@ -1,5 +1,5 @@
 import dearpygui.dearpygui as dpg
-from db_utils import insert_new_student
+from db.db_utils import insert_new_student
 
 ADD_NEW_STUDENT_MODAL_TAG= "add_new_student_modal"
 def submit_new_student_callback():
@@ -12,7 +12,7 @@ def submit_new_student_callback():
     dpg.delete_item(ADD_NEW_STUDENT_MODAL_TAG)
     return
 
-def open_add_new_student_modal():
+def open_modal():
     if dpg.does_item_exist(ADD_NEW_STUDENT_MODAL_TAG):
         dpg.delete_item(ADD_NEW_STUDENT_MODAL_TAG)
     with dpg.window(label="Add New User", modal=True, tag=ADD_NEW_STUDENT_MODAL_TAG, width=500, height=500, no_title_bar=False):

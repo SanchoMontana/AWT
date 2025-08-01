@@ -12,7 +12,7 @@ def get_recent_lessons(limit=10):
     conn.close()
     return rows
 
-def draw_lessons_tab():
+def lessons_tab():
     with dpg.tab(label="Lessons"):
         rows = get_recent_lessons()
         if not rows:
