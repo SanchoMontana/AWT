@@ -1,5 +1,5 @@
 import dearpygui.dearpygui as dpg
-from db.db_utils import insert_new_student
+from db_utils import insert_new_student
 from global_uuids import ADD_STUDENT_MODAL_UUID
 
 def submit_new_student_callback(sender, app_data, user_data):

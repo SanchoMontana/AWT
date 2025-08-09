@@ -145,11 +145,11 @@ def insert_new_student(name, dob, email, phone, notes):
     conn.commit()
     conn.close()
 
-def get_table_columns(table_name):
+def get_table_columns(db_path, table_name):
     """
     Returns a list of (column_name, column_type) for the given table.
     """
-    conn = sqlite3.connect(DB_NAME)
+    conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
 
     try:

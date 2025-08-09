@@ -1,14 +1,14 @@
 from dpg_utils import *
 from global_uuids import *
 import dearpygui.dearpygui as dpg
-from db.db_utils import *
+from db_utils import *
 from global_uuids import STUDENT_TAB_NOTES_UUID
 from global_uuids import ADD_STUDENT_BUTTON_UUID
 from modals import add_new_student, delete_student, modify_student
 
 # --- Global state to track the selected checkbox
 student_id_checkbox_map = {"current": None}
-headers = get_table_columns(STUDENT_TABLE_NAME)[:-1] # Ignore the notes section for now
+headers = get_table_columns(DB_NAME, STUDENT_TABLE_NAME)[:-1] # Ignore the notes section for now
 students = get_all_students()
 
 

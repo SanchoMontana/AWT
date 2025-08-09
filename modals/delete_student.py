@@ -1,6 +1,6 @@
 import dearpygui.dearpygui as dpg
 from global_uuids import DELETE_STUDENT_MODAL_UUID 
-from db.db_utils import delete_student_by_id, get_student_by_id
+from db_utils import delete_student_by_id, get_student_by_id
 from dpg_utils import *
 
 def submit_delete_student_callback(sender, app_data, user_data):

@@ -1,6 +1,6 @@
 import dearpygui.dearpygui as dpg
 import datetime
-from db.db_utils import get_all_students, insert_full_lesson_record
+from db_utils import get_all_students, insert_full_lesson_record
 from modals import add_new_student
 
 # Submit button

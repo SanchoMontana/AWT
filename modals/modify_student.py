@@ -1,5 +1,5 @@
 import dearpygui.dearpygui as dpg
-from db.db_utils import modify_student, get_student_by_id
+from db_utils import modify_student, get_student_by_id
 from dpg_utils import *
 
 MODIFY_STUDENT_MODAL_TAG= "modify_student_modal"

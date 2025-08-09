@@ -6,8 +6,9 @@ dpg.create_context()
 
 # from fonts.font_init import *
 from gruvbox_theme import apply_gruvbox_theme
-from db.db_utils import init_db
+from db_utils import init_db
 from tabs.students_tab import students_tab
+from tabs.lessons_tab import lessons_tab
 from modals.log_lesson import open_log_lesson_modal
 from modals import add_new_student
 
@@ -22,8 +23,8 @@ dpg.setup_dearpygui()
 with dpg.window(label="Main", width=1200, height=800):
     with dpg.tab_bar():
         pass
-        students_tab()
-        #lessons_tab()
+        # students_tab()
+        lessons_tab()
         #homework_tab()
 
 dpg.show_viewport()
